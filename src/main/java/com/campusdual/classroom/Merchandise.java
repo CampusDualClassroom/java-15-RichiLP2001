@@ -1,5 +1,7 @@
 package com.campusdual.classroom;
 
+import java.util.Date;
+
 public abstract class Merchandise {
 
 	protected String name;
@@ -9,12 +11,16 @@ public abstract class Merchandise {
 	protected String area;
 	protected String shelf;
 	protected int quantity;
+	public Date fechaEvento;
 
-	public Merchandise(String name, String uniqueId, String responsibleId) {
+
+	/*public Merchandise(String name, String uniqueId, String responsibleId) {
 		this.name = name;
 		this.uniqueId = uniqueId;
 		this.responsibleId = responsibleId;
-	}
+
+
+}*/
 
 	public Merchandise(String name, String uniqueId, String responsibleId, int zone, String area, String shelf,
 			int quantity) {
@@ -25,6 +31,7 @@ public abstract class Merchandise {
 		this.area = area;
 		this.shelf = shelf;
 		this.quantity = quantity;
+
 	}
 
 	public String getLocation() {
@@ -38,21 +45,26 @@ public abstract class Merchandise {
 		return builder.toString();
 	}
 
-	public abstract Object getSpecificData();
+	public abstract Object getSpecificData(){
+		System.out.println();
+	}
 
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
+
 		this.name = name;
 	}
 
 	public String getUniqueId() {
+
 		return uniqueId;
 	}
 
 	public void setUniqueId(String uniqueId) {
+
 		this.uniqueId = uniqueId;
 	}
 
@@ -95,4 +107,13 @@ public abstract class Merchandise {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
+	public Date getFechaEvento() {
+		return fechaEvento;
+	}
+
+	public void setFechaEvento(Date fechaEvento) {
+		this.fechaEvento = fechaEvento;
+	}
 }
+
