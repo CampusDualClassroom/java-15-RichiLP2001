@@ -1,5 +1,8 @@
 package com.campusdual.classroom;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public abstract class Merchandise {
 
 	protected String name;
@@ -9,15 +12,20 @@ public abstract class Merchandise {
 	protected String area;
 	protected String shelf;
 	protected int quantity;
+	public Date fechaEvento;
+	public SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
-	public Merchandise(String name, String uniqueId, String responsibleId) {
+
+	/*public Merchandise(String name, String uniqueId, String responsibleId) {
 		this.name = name;
 		this.uniqueId = uniqueId;
 		this.responsibleId = responsibleId;
-	}
 
-	public Merchandise(String name, String uniqueId, String responsibleId, int zone, String area, String shelf,
-			int quantity) {
+
+}*/
+
+	public Merchandise(String name, String uniqueId, String responsibleId, int zone,
+					   String area, String shelf, int quantity) {
 		this.name = name;
 		this.uniqueId = uniqueId;
 		this.responsibleId = responsibleId;
@@ -25,6 +33,7 @@ public abstract class Merchandise {
 		this.area = area;
 		this.shelf = shelf;
 		this.quantity = quantity;
+
 	}
 
 	public String getLocation() {
@@ -40,19 +49,22 @@ public abstract class Merchandise {
 
 	public abstract Object getSpecificData();
 
-	public String getName() {
+    public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
+
 		this.name = name;
 	}
 
 	public String getUniqueId() {
+
 		return uniqueId;
 	}
 
 	public void setUniqueId(String uniqueId) {
+
 		this.uniqueId = uniqueId;
 	}
 
@@ -95,4 +107,21 @@ public abstract class Merchandise {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
+	public Date getFechaEvento() {
+		return fechaEvento;
+	}
+
+	public void setFechaEvento(Date fechaEvento) {
+		this.fechaEvento = fechaEvento;
+	}
+
+	public SimpleDateFormat getSdf() {
+		return sdf;
+	}
+
+	public void setSdf(SimpleDateFormat sdf) {
+		this.sdf = sdf;
+	}
 }
+
