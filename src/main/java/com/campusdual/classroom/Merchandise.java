@@ -1,5 +1,6 @@
 package com.campusdual.classroom;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public abstract class Merchandise {
@@ -12,6 +13,7 @@ public abstract class Merchandise {
 	protected String shelf;
 	protected int quantity;
 	public Date fechaEvento;
+	public SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
 
 	/*public Merchandise(String name, String uniqueId, String responsibleId) {
@@ -22,8 +24,8 @@ public abstract class Merchandise {
 
 }*/
 
-	public Merchandise(String name, String uniqueId, String responsibleId, int zone, String area, String shelf,
-			int quantity) {
+	public Merchandise(String name, String uniqueId, String responsibleId, int zone,
+					   String area, String shelf, int quantity) {
 		this.name = name;
 		this.uniqueId = uniqueId;
 		this.responsibleId = responsibleId;
@@ -45,11 +47,9 @@ public abstract class Merchandise {
 		return builder.toString();
 	}
 
-	public abstract Object getSpecificData(){
-		System.out.println();
-	}
+	public abstract Object getSpecificData();
 
-	public String getName() {
+    public String getName() {
 		return name;
 	}
 
@@ -114,6 +114,14 @@ public abstract class Merchandise {
 
 	public void setFechaEvento(Date fechaEvento) {
 		this.fechaEvento = fechaEvento;
+	}
+
+	public SimpleDateFormat getSdf() {
+		return sdf;
+	}
+
+	public void setSdf(SimpleDateFormat sdf) {
+		this.sdf = sdf;
 	}
 }
 

@@ -1,11 +1,6 @@
 package com.campusdual.classroom;
 
-import com.campusdual.util.Utils;
-import org.junit.jupiter.api.DisplayNameGenerator;
-
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 public class FreshMerchandise extends Merchandise {
@@ -16,39 +11,34 @@ public class FreshMerchandise extends Merchandise {
 
 
 
+
     public FreshMerchandise(String name, String uniqueId, String responsibleId, int zone,
-                            String area, int shelf, int quantity) {
-    super(name,uniqueId,responsibleId);
-    this.zone=zone;
-    this.area=area;
-    this.shelf=shelf;
-    this.quantity=quantity;
+                            String area, String shelf, int quantity, Date fechaVencimiento) {
+    super(name,uniqueId,responsibleId,zone, area, shelf, quantity);
 
+    this.fechaEvento= fechaVencimiento;
 
     }
-    //public FreshMerchandise(Date fechaEvento)
-
-
- //-->
- /*public String toString(){
-    System.out.println("Nombre: "+this.name+" Fecha caducidad: "+this.fechaEvento);
-
-   }*/
- public void aisgnarFechaEvento(String fechaVencimiento, String fechaString ){
-  SimpleDateFormat formatoFecha = new SimpleDateFormat("dd-MM-yyyy");
-   try {
-    //convertir la cadena de texto en un objeto Date
-    Date fecha= formatoFecha.parse(fechaString);
-    //Asignar la fecha convertida al evento
-    Merchandise.setFechaEvento(fecha);
-    //confirmacion de la asignacion
-    System.out.println("Fecha asignada: "+ formatoFecha.format(Merchandise.getFechaEvento()));
-   } catch (ParseException e){
-    System.out.println("Error al converitr la fecha: "+ e.getMessage());
-   }
- }
-
+    public Date getExpirationDate(){
+        return this.fechaEvento;
+    }
+    public String getFormattedDate(Date fecha){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        return sdf.format(fecha);
 
     }
+
+
+    public String getSpecificData() {
+        return "name: "+this.name+" - zona: "+this.zone+" - Area: "+this.area+"\nFecha de caducidad: "+getFormattedDate(fechaEvento);
+    }
+    public void printSpecificData(){
+        System.out.println(getSpecificData());
+    }
+
+    }
+
+
+
 
 
